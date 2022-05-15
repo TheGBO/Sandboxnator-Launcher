@@ -1,0 +1,11 @@
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\bin\Release\Sandboxnator Launcher.exe.config
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\bin\Release\Sandboxnator Launcher.exe
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\bin\Release\Sandboxnator Launcher.pdb
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator Launcher.csproj.AssemblyReference.cache
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator Launcher.csproj.SuggestedBindingRedirects.cache
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator_Launcher.SandboxnatorLauncher.resources
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator_Launcher.Properties.Resources.resources
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator Launcher.csproj.GenerateResource.cache
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator Launcher.csproj.CoreCompileInputs.cache
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator Launcher.exe
+C:\Users\TheGBO\source\repos\Sandboxnator Launcher\Sandboxnator Launcher\obj\Release\Sandboxnator Launcher.pdb

@@ -18,8 +18,8 @@ namespace Sandboxnator_Launcher
 {
     public partial class SandboxnatorLauncher : Form
     {
-        bool downloaded;
-        string gamePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "/Sandboxnator";
+        string gameUrl = "https://github.com/TheGBO/Sandboxnator-Launcher/raw/main/Client.zip";
+        string gamePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Sandboxnator");
         public SandboxnatorLauncher()
         {
             InitializeComponent();
@@ -27,22 +27,74 @@ namespace Sandboxnator_Launcher
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             if (!Directory.Exists(gamePath))
             {
                 Directory.CreateDirectory(gamePath);
             }
-            if(Directory.Exists(gamePath + "/Client"))
+            else
             {
-                downloaded = true;
+                try
+                {
+                    Directory.Delete(gamePath + "\\Client", true);
+                }
+                catch (Exception) { }
             }
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void playBtn_Click(object sender, EventArgs e)
         {
-            if (downloaded)
+            new Thread(DownloadGame).Start();    
+        }
+
+        private void RunGame()
+        {
+            statusLabel.Text = "Initializing Game...";
+            Process.Start(gamePath + "\\Client\\Sandboxnator.exe");
+            Application.Exit();
+        }
+
+        private void DownloadGame()
+        {
+            try
             {
-                Process.Start(gamePath + "Client/Sandboxnator.exe");
+                WebClient wc = new WebClient();
+                wc.DownloadProgressChanged += Wc_DownloadProgressChanged;
+                wc.DownloadFileCompleted += Wc_DownloadFileCompleted;
+                wc.DownloadFileAsync(new Uri(gameUrl), gamePath + "\\Client.zip");
+                
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void Wc_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            UnzipGame();
+            RunGame();
+        }
+
+        private void UnzipGame()
+        {
+            ZipFile.ExtractToDirectory(gamePath + "\\Client.zip", gamePath);
+        }
+
+        private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            statusLabel.Text = $"Checking for updates... {e.ProgressPercentage.ToString()}%";
+        }
+
+        private void newsMenu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statusLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
