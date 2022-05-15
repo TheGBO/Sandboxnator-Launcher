@@ -28,18 +28,15 @@ namespace Sandboxnator_Launcher
         private void Form1_Load(object sender, EventArgs e)
         {
             
-            if (!Directory.Exists(gamePath))
+            if (!Directory.Exists(gamePath + "\\Client"))
             {
-                Directory.CreateDirectory(gamePath);
+                Directory.CreateDirectory(gamePath + "\\Client");
             }
             else
             {
-                try
-                {
-                    Directory.Delete(gamePath + "\\Client", true);
-                }
-                catch (Exception) { }
+                Directory.Delete(gamePath + "\\Client", true);
             }
+
             CheckForIllegalCrossThreadCalls = false;
         }
 
@@ -79,7 +76,7 @@ namespace Sandboxnator_Launcher
 
         private void UnzipGame()
         {
-            ZipFile.ExtractToDirectory(gamePath + "\\Client.zip", gamePath);
+            ZipFile.ExtractToDirectory(gamePath + "\\Client.zip", gamePath + "\\Client");
         }
 
         private void Wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
